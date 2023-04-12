@@ -93,6 +93,7 @@ extern struct debugcc_platform msm8936_debugcc;
 extern struct debugcc_platform msm8994_debugcc;
 extern struct debugcc_platform msm8996_debugcc;
 extern struct debugcc_platform msm8998_debugcc;
+extern struct debugcc_platform qcm2290_debugcc;
 extern struct debugcc_platform qcs404_debugcc;
 extern struct debugcc_platform sc8280xp_debugcc;
 extern struct debugcc_platform sdm845_debugcc;

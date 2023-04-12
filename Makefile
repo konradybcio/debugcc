@@ -11,6 +11,7 @@ SRCS := debugcc.c \
 	msm8994.c \
 	msm8996.c \
 	msm8998.c \
+	qcm2290.c \
 	qcs404.c \
 	sc8280xp.c \
 	sdm845.c \
@@ -31,6 +32,7 @@ $(OUT): $(OBJS)
 	ln -f $(OUT) msm8994-debugcc
 	ln -f $(OUT) msm8996-debugcc
 	ln -f $(OUT) msm8998-debugcc
+	ln -f $(OUT) qcm2290-debugcc
 	ln -f $(OUT) qcs404-debugcc
 	ln -f $(OUT) sc8280xp-debugcc
 	ln -f $(OUT) sdm845-debugcc
