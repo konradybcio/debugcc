@@ -90,6 +90,22 @@ static struct debug_mux disp1_cc = {
 	.div_val = 4,
 };
 
+static struct debug_mux gpu_cc = {
+	.phys = 0x3d90000,
+	.size = 0x9000,
+	.block_name = "gpu",
+
+	.enable_reg = 0x1100,
+	.enable_mask = BIT(0),
+
+	.mux_reg = 0x1568,
+	.mux_mask = 0xff,
+
+	.div_reg = 0x10fc,
+	.div_mask = 0xf,
+	.div_val = 2,
+};
+
 static struct debug_mux mc_cc = {
 	.phys =	0x90ba000,
 	.size = /* 0x54 */ 0x1000,
@@ -426,6 +442,20 @@ static struct measure_clk sc8280xp_clocks[] = {
 	{ "disp1_cc_mdss_vsync_clk",				&gcc, 0x82, &disp1_cc, 0x17 },
 	{ "disp1_cc_sleep_clk",					&gcc, 0x82, &disp1_cc, 0x46 },
 	{ "disp1_cc_xo_clk",					&gcc, 0x82, &disp1_cc, 0x45 },
+	{ "gpu_cc_ahb_clk",					&gcc, 0x22d, &gpu_cc, 0x12 },
+	{ "gpu_cc_crc_ahb_clk",					&gcc, 0x22d, &gpu_cc, 0x13 },
+	{ "gpu_cc_cx_gmu_clk",					&gcc, 0x22d, &gpu_cc, 0x1a },
+	{ "gpu_cc_cx_snoc_dvm_clk",				&gcc, 0x22d, &gpu_cc, 0x17 },
+	{ "gpu_cc_cxo_aon_clk",					&gcc, 0x22d, &gpu_cc, 0xb },
+	{ "gpu_cc_gx_gmu_clk",					&gcc, 0x22d, &gpu_cc, 0x11 },
+	{ "gpu_cc_hub_aon_clk",					&gcc, 0x22d, &gpu_cc, 0x27 },
+	{ "gpu_cc_hub_cx_int_clk",				&gcc, 0x22d, &gpu_cc, 0x1c },
+	{ "gpu_cc_sleep_clk",					&gcc, 0x22d, &gpu_cc, 0x18 },
+	{ "measure_only_gcc_gpu_cfg_ahb_clk",			&gcc, 0x22d, &gpu_cc, 0x1 },
+	{ "measure_only_gpu_cc_cx_gfx3d_clk",			&gcc, 0x22d, &gpu_cc, 0x1d },
+	{ "measure_only_gpu_cc_cx_gfx3d_slv_clk",		&gcc, 0x22d, &gpu_cc, 0x1e },
+	{ "measure_only_gpu_cc_gx_gfx3d_clk",			&gcc, 0x22d, &gpu_cc, 0xd },
+
 	{ "measure_only_mccc_clk", 				&gcc, 0xfeedbeef, &mc_cc, 0x50 },
 	{}
 };
